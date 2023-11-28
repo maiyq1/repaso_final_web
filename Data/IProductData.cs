@@ -4,5 +4,7 @@ namespace Data;
 
 public interface IProductData
 {
-    bool create(Product product);
+    public bool create(Product product);
+
+    public Product getById(int id);
 }

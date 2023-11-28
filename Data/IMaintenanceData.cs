@@ -4,5 +4,5 @@ namespace Data;
 
 public interface IMaintenanceData
 {
-    bool create(Product product);
+    public bool create(MaintenanceActivity activity);
 }
