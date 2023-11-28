@@ -29,4 +29,9 @@ public class ProductData : IProductData
     { 
         return _isaDb.Products.Where(t => t.id == id).FirstOrDefault();
     }
+
+    public IsaDBContext GetDbContext()
+    {
+        return _isaDb;
+    }
 }

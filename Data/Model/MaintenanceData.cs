@@ -24,4 +24,9 @@ public class MaintenanceData : IMaintenanceData
             return false;
         }
     }
+
+    public IsaDBContext GetDbContext()
+    {
+        return _isaDb;
+    }
 }
