@@ -14,6 +14,9 @@ public class ProductDomain : IProductDomain
     
     public bool create(Product product)
     {
+        //RECUERDA CAMBIAR ESTOS VALORES NUMERICOS POR CONSTANTES, NALDO CTMRE >:V
+        //const int OperationalProduct = 1 
+        //const int UnoperationalProduct = 2 
         if (_ProductData.GetDbContext().Products.Any(item => item.serialNumber == product.serialNumber))
         {
             return false;
