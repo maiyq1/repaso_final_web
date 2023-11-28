@@ -21,6 +21,7 @@ public class MaintenanceActivityDomain : IMaintenanceActivityDomain
             
             switch (activity.activityResult)
             {
+                //RECUERDA CAMBIAR ESTOS VALORES NUMERICOS POR CONSTANTES, NALDO CTMRE >:V
                 case 0:
                     if (_MaintenanceData.getBySerialNumber(activity.productSerialNumber).status == 1)
                     {
