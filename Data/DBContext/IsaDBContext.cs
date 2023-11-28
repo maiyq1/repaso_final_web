@@ -25,7 +25,7 @@ public class IsaDBContext : DbContext
         {
             //Version of MySql and required data to connect to the database
             var serverVersion = new MySqlServerVersion(new Version(8, 0, 29));
-            optionsBuilder.UseMySql("Server=127.0.0.1,3306;Uid=root;Pwd=admin123;Database=isa;",serverVersion);
+            optionsBuilder.UseMySql("Server=127.0.0.1,3306;Uid=root;Pwd=Admin180403@.;Database=isa;",serverVersion);
         }
     }
 
