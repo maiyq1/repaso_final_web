@@ -19,17 +19,13 @@ namespace API.Controllers
     {
         private IProductData _productData;
         private IProductDomain _productDomain;
-        private IMaintenanceData _maintenanceData;
-        private IMaintenanceActivityDomain _maintenanceActivityDomain;
         private IMapper _mapper;
         
         
-        public ProductController(IProductData productData, IProductDomain productDomain, IMapper mapper, IMaintenanceActivityDomain maintenanceActivityDomain,IMaintenanceData maintenanceData)
+        public ProductController(IProductData productData, IProductDomain productDomain, IMapper mapper)
         {
             _productData = productData;
             _productDomain = productDomain;
-            _maintenanceData = maintenanceData;
-            _maintenanceActivityDomain = maintenanceActivityDomain;
             _mapper = mapper;
         }
         
@@ -42,9 +38,10 @@ namespace API.Controllers
 
         // GET: api/Product/5
         [HttpGet("{id}", Name = "Get")]
-        public Product Get(int id)
+        public ProductResponse Get(int id)
         {
-            return _productData.getById(id);
+            var product = _productData.getById(id);
+            return _mapper.Map<Product, ProductResponse>(product);
         }
 
         // POST: api/Product

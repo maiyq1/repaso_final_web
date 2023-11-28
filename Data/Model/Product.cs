@@ -11,5 +11,5 @@ public class Product : Base
     
     public string statusDescription { get; set; }
     
-    public MaintenanceActivity activity { get; set; }
+    //public MaintenanceActivity activity { get; set; }
 }

@@ -10,5 +10,5 @@ public class MaintenanceActivity : Base
     public string description { get; set; }
     public int activityResult { get; set; }
     
-    public Product product { get; set; }
+    //public Product product { get; set; }
 }

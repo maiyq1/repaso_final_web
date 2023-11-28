@@ -14,8 +14,11 @@ public class MaintenanceActivityDomain : IMaintenanceActivityDomain
     
     public bool create(MaintenanceActivity activity)
     {
+        
         if (_MaintenanceData.GetDbContext().Products.Any(item => item.serialNumber == activity.productSerialNumber))
+        //if(true)
         {
+            
             switch (activity.activityResult)
             {
                 case 0:
@@ -34,7 +37,9 @@ public class MaintenanceActivityDomain : IMaintenanceActivityDomain
                     }
                     break;
             }
+            
             //_MaintenanceData.getBySerialNumber(activity.productSerialNumber)
+            
             return _MaintenanceData.create(activity);
         }
         else
