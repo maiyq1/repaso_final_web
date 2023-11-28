@@ -1,4 +1,8 @@
+using API.Mapper;
+using Data;
 using Data.DBContext;
+using Data.Model;
+using Domain;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,6 +13,17 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+//Dependency Injection
+builder.Services.AddScoped<IProductData, ProductData>();
+builder.Services.AddScoped<IProductDomain, ProductDomain>();
+builder.Services.AddScoped<IMaintenanceData, MaintenanceData>();
+builder.Services.AddScoped<IMaintenanceActivityDomain, MaintenanceActivityDomain>();
+builder.Services.AddAutoMapper(
+    typeof(ModelToRequest),
+    typeof(RequestToAPI)
+);
+
 
 //MySQL Connection
 var connectionString = builder.Configuration.GetConnectionString("databaseExample");
