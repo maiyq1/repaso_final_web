@@ -40,6 +40,9 @@ public class IsaDBContext : DbContext
         builder.Entity<Product>().Property(p => p.model).IsRequired();
         builder.Entity<Product>().Property(p => p.serialNumber).IsRequired();
         builder.Entity<Product>().Property(p => p.status).IsRequired();
+        builder.Entity<Product>().Ignore(p => p.statusDescription);
+        builder.Entity<Product>().HasOne(p => p.MaintenanceActivity).WithOne(m => m.Product)
+            .HasForeignKey<MaintenanceActivity>(p => p.id);
 
         builder.Entity<MaintenanceActivity>().ToTable("MaintenanceActivities");
         builder.Entity<MaintenanceActivity>().HasKey(p => p.id);

@@ -7,4 +7,5 @@ public class Product : Base
     public string serialNumber { get; set; }
     public int status { get; set; }
     public int statusDescription { get; set; }
+    public MaintenanceActivity MaintenanceActivity { get; set; }
 }
