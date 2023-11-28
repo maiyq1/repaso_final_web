@@ -18,8 +18,22 @@ public class ProductDomain : IProductDomain
         {
             return false;
         }
+
+        if (product.statusDescription != "OPERATIONAL" && product.statusDescription != "UNOPERATIONAL")
+        {
+            return false;
+            
+        }
         else
         {
+            if (product.statusDescription == "OPERATIONAL")
+            {
+                product.status = 1;
+            }
+            else
+            {
+                product.status = 2;
+            }
             return _ProductData.create(product);
         }
     }

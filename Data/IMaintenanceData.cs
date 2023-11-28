@@ -7,4 +7,6 @@ public interface IMaintenanceData
 {
     public bool create(MaintenanceActivity activity);
     public IsaDBContext GetDbContext();
+    
+    public Product getBySerialNumber(string serialnumber);
 }

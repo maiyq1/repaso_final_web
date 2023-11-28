@@ -29,4 +29,9 @@ public class MaintenanceData : IMaintenanceData
     {
         return _isaDb;
     }
+    
+    public Product getBySerialNumber(string serialnumber)
+    {
+        return _isaDb.Products.Where(t => t.serialNumber == serialnumber).FirstOrDefault();
+    }
 }

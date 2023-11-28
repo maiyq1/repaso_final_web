@@ -10,4 +10,6 @@ public interface IProductData
     public Product getById(int id);
 
     public IsaDBContext GetDbContext();
+
+    
 }

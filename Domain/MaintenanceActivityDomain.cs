@@ -16,6 +16,25 @@ public class MaintenanceActivityDomain : IMaintenanceActivityDomain
     {
         if (_MaintenanceData.GetDbContext().Products.Any(item => item.serialNumber == activity.productSerialNumber))
         {
+            switch (activity.activityResult)
+            {
+                case 0:
+                    if (_MaintenanceData.getBySerialNumber(activity.productSerialNumber).status == 1)
+                    {
+                        _MaintenanceData.getBySerialNumber(activity.productSerialNumber).status = 2;
+                        _MaintenanceData.getBySerialNumber(activity.productSerialNumber).statusDescription = "UNOPERATIONAL";
+                    }
+                    break;
+                
+                case 1:
+                    if (_MaintenanceData.getBySerialNumber(activity.productSerialNumber).status == 2)
+                    {
+                        _MaintenanceData.getBySerialNumber(activity.productSerialNumber).status = 1;
+                        _MaintenanceData.getBySerialNumber(activity.productSerialNumber).statusDescription = "OPERATIONAL";
+                    }
+                    break;
+            }
+            //_MaintenanceData.getBySerialNumber(activity.productSerialNumber)
             return _MaintenanceData.create(activity);
         }
         else
